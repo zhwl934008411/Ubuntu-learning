@@ -1,0 +1,40 @@
+Python适合开发哪些类型的应用呢？
+
+首选是网络应用，包括网站、后台服务等等；
+
+其次是许多日常需要的小工具，包括系统管理员需要的脚本任务等等；
+
+另外就是把其他语言开发的程序再包装起来，方便使用。
+
+最后说说Python的缺点。
+python执行时才执行编译
+代码不能加密
+
+homebrew mac软件包管理工具
+Homebrew简介和基本使用
+https://blog.csdn.net/andanlan/article/details/51589800
+
+
+命令行解释器:CPython,IPython,PyPy
+
+python默认版本的切换,shell:
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
+此时默认版本为python3
+切换版本:
+sudo update-alternatives --config python
+
+
+切换python3.5&3.6
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.5 1
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 2
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.4 3
+
+sudo update-alternatives --config python3
+
+
+
+
+
+
+
