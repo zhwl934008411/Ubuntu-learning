@@ -1,0 +1,43 @@
+Java运行环境配置
+
+
+ java安装
+sudo yum -y install java-1.8.0-openjdk*(*表示安装与java相关的所有的依赖包)
+-y 	answer yes for all questions
+java -version
+openjdk version "1.8.0_161"
+OpenJDK Runtime Environment (build 1.8.0_161-b14)
+OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
+
+ tomcat安装
+ sudo wget http://mirrors.shu.edu.cn/apache/tomcat/tomcat-9/v9.0.7/bin/apache-tomcat-9.0.7.tar.gz
+ 运行sh		sh shName.sh		./shName.sh(./表示当前路径)
+ chmod u+x fileName		给文件添加可执行权限
+ linux 创建连接命令 ln -s 软链接		非常重要
+ln -s 源文件 目标文件
+ 相当于添加环境变量到/usr/bin
+ sudo vim /etc/profile
+ export MAVEN_HOME=/usr/local/devtools/apache-maven-3.1.0
+export PATH=${MAVEN_HOME}/bin:${PATH}
+ 查找文件		find . -name "*.conf"
+ http://172.20.10.14:8080/		默认端口8080
+ maven安装
+ sudo wget http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
+ 
+ Tomcat Nginx配合
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

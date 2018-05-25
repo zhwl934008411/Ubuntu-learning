@@ -1,0 +1,84 @@
+ push an existing repository from the command line
+
+在工作区即本地的learningit仓库运行命令
+git remote add origin git@github.com:zhwl934008411/learningit.git
+链接远程库(默认链接master分支)
+
+下一步，就可以把本地库的所有内容推送到远程库上：
+git push -u origin master 将本地库的内容推送到远程库上
+只要本地做了commit 就可以推送到远程库
+git push origin master
+
+创建新的远程库,clone到本地库
+create a new repository on the command line
+echo "# gitskills" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+
+git clone git@github.com:zhwl934008411/gitskills.git
+
+
+假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并：
+
+创建分支dev	
+git branch dev 
+git checkout dev
+git checkout(转换) -b dev
+
+合并分支dev到master分支
+git merge dev
+
+git merge命令用于合并指定分支到当前分支
+当分别提交master分支和feature1分支后发现编辑的内容不一致,统一后再重新提交
+
+Fast forward模式,但这种模式下，删除分支后，会丢掉分支信息。
+禁用Fast forward模式后,git merge时会生成一个新的commit,当删除后依然从commit可以看到分支信息
+git merge --no-ff -m "merge with no-ff" dev
+-no-ff表示禁用fast forward模式
+
+git stash 暂时保护现场,暂存区文件不提交
+恢复工作现场
+一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+
+另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+
+恢复指定的stash
+git stash apply stash@{0}
+
+强行删除分支
+git branch -D feature-vulcan
+
+将本地库更新推送到远程
+git push origin master/dev
+
+多人协作,在另一个文件夹中git clone到本地,抓取分支(默认一抓取master),再创建远程origin的dev分支到本地
+git remote origin 查看远程分支
+git remote update 将本地分支远程分支合并
+git fetch	
+git branch -b dev origin/dev
+
+将远程库的更新拉取到本地并同步
+git pull 
+
+将本地库的dev分支链接到远程库的origin/dev
+git branch --set-upstream dev origin/dev
+git branch --track or --set-upstream-to dev origin/dev
+
+
+因此，多人协作的工作模式通常是这样：
+
+    首先，可以试图用git push origin branch-name推送自己的修改；
+
+    如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+    如果合并有冲突，则解决冲突，并在本地提交；
+
+    没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --track branch-name origin/branch-name。
+
+
+
+
+

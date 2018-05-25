@@ -1,0 +1,47 @@
+Python运行环境配置
+pip 软件包管理工具
+virtualenv		虚拟环境
+pip install 模块安装
+python.imooc.test	实例访问
+
+pip 安装
+sudo yum install python2-pip
+sudo yum clean all
+
+pip替换为豆瓣源
+mkdir ~/ .pip
+vim ~/ .pip/pip.conf
+[global]
+timeout=60
+index-url = http://pypi.doubanio.com/simple
+
+ 虚拟环境安装
+pip install virtualenv
+
+ virtualenv基本命令
+ virtualenv imooc 新建虚拟环境
+ source imooc/bin/activate		source ./bin/activate 激活虚拟环境pip
+ 退出虚拟环境  deactivate
+
+ Python-第三方库requests详解 - CSDN博客
+https://blog.csdn.net/shanzhizi/article/details/50903748
+request官方文档 - 快速上手 — Requests 2.18.1 文档
+http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
+Flask 快速入门 - CSDN博客
+https://blog.csdn.net/u011054333/article/details/70151857
+欢迎使用 Flask — Flask 0.10.1 文档
+http://docs.jinkan.org/docs/flask/quickstart.html
+Flask
+pip install -i http://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com flask
+
+不要加sudo,会自动进行全局安装，我们只需要在虚拟环境引用这个库就可以
+
+
+http://127.0.0.1:5000/
+
+flask Nginx配合
+sudo cp java.conf python.conf
+
+
+
+

@@ -1,0 +1,25 @@
+ubuntu 安装包管理器：apt-get install package
+Git:版本管理工具
+
+安装：yum install git
+cd ~/.ssh/	ssh-keygen
+私钥id_rsa  公钥id_rsa.pub
+			
+git 命令自动补全设置
+
+ fetch 	拉取
+ remote	远程操控
+ commit 	提交
+ rebase		合并本地的多个分支
+ 
+ git config 	git init
+ git clone		git remote
+ git fetch		git commit
+ git rebase	git push
+ 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,51 @@
+Redis、Memcached介绍及安装
+Memcached
+安装		yum install memcached
+启动		memcached -d -l -m -p
+停止		kill pid
+寻求帮助		man memcached
+默认端口 1196
+sudo netstat -anpl | grep 'memcached'
+telnet hostname portname
+quit telnet   检测端口是否是通的
+telnet 127.0.0.1 11211连接memcached
+
+
+
+
+
+
+
+Redis
+安装		源码编译安装
+下载安装源 wget http://download.redis.io/releases/redis-4.0.9.tar.gz
+make 编译
+报错 sudo yum install gcc
+		make MALLOC=libc
+Port: 6379
+启动		redis-server start/restart
+停止		redis-server stop
+客户端  redis-client
+
+Redis不仅仅支持简单的k/v类型的数据，同时还提供list，set，hash等数据结构的存储
+Redis支持数据的备份，即master-slave模式的数据备份
+Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载使用
+cd /home/imooc/redis-4.0.9/src
+redis-server			redis服务端启动程序
+redis-cli				Redis客户端操作命令行工具	也可以用telnet代替
+redis-benchmark Redis性能测试工具
+redis-check-aof   数据修复工具
+redis-check-dump检查导出工具
+CONFIG SET protected-mode no
+
+
+
+
+
+
+
+
+
+
+
+
