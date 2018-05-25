@@ -1,0 +1,146 @@
+服务器硬件资源和磁盘操作
+内存：free-m
+硬盘：df -h
+负载：w /top
+[root@192 ~]# w
+ 13:34:49 up  1:28,  3 users,  load average: 0.00, 0.03, 0.05
+																1min,5min,15min
+cpu个数和核数 cat /proc/ cpuinfo
+fdisk 格式化磁盘
+
+文件和文件夹操作命令
+linux平台全部是以文件的形式存在
+Linux文件的目录结构
+根目录：/
+家目录：cd /home  cd ~
+临时目录：/tmp
+配置目录：/etc
+用户程序目录:/usr
+ls -al /ll列举目录下的所有文件
+
+文件基本操作：增删改查
+touch 新建文件
+mkdir 新建文件夹
+rm -f删除、
+rm -r 删除文件夹
+rm -rf 强制删除文件夹
+mv 移动· 可以做替换文件用途,类似修改文件名
+cp 复制 复制文件到指定路径cp ./imooc ~
+ls 查看目录下的文件
+pwd 显示当前所在的路径
+cd 进入目录
+cd ..返回上一级
+mkdir -p imooc_dir/test1/test2	:创建多级目录
+文本编辑神器vim
+GUI:Graphical User Interface
+移到行首行尾：行首CAP LOCK+gg 行尾CAP LOCK+G
+删除一行 小写+dd
+复制粘贴：yy p
+撤销操作：u
+退出插入模式：esc
+直接退出	:q!
+保存并推出	:wq
+退格键：backspace
+万能的ctrl+c,取消或退出当前操作
+
+
+文件权限  x表示可执行
+rwx-->4	2	1
+
+文件搜索、查找、读取
+tail	从文件尾部开始读
+head		从文件头部读
+cat	读取整个文件
+cat -n  按行读取整个文件
+more	分页读取
+less	可控分页 退出less q
+grep	搜索关键字
+find	查找文件 find . -name "*.conf"			.表示文件名扩展为conf
+find . -name "*ooc"		查找文件名含有ooc的文件
+find . -type f
+find . -type d
+
+Linux find命令
+http://www.runoob.com/linux/linux-comm-find.html
+
+查找当前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件：
+find / -type f -perm 600 -exec ls -l {} \;
+
+查找/var/logs目录中更改时间在7日以前的普通文件，并在删除之前询问它们：
+find /var/logs -type f -mtime +7 -ok rm { } ;
+
+wc 统计个数
+文件压缩和
+Examples:
+  tar -cf archive.tar(目标文件) foo bar(源文件)  # Create archive.tar from files foo and bar.
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.
+  tar -xf archive.tar          # Extract all files from archive.tar.
+  tar -czvf imooc.tar.gz imooc
+   tar -xzvf imooc.tar.gz
+
+tar -xzvf test.tgz -C tmp
+
+
+系统用户操作命令
+useradd	添加用户	Ubuntu下是不会在/home目录下
+自动创建与用户名同名的用户目录，而且不会自动选择
+shell版本，也没有设置密码，那么这个用户是不能登录的
+，需要使用passwd命令修改密码
+adduser 	添加用户(ubuntu只能用這條命令添加用戶)
+userdel 	删除用户 
+userdel -rf 删除用户及相关的目录文件
+passwd	设置密码
+cd ~表示进入home 用户目录
+不同用户不能相互进行访问（除了root）
+防火墙相关设置
+安装：yum install firewalld
+启动:	  service firewalld
+检查状态service firewalld status	
+				ps -ef |grep firewall
+				yum list | firewall
+关闭防火墙 service firewalld stop
+service firewalld restart
+禁用防火墙 service firewalld disable
+firewall-cmd --getzones
+firewall-cmd --list-all-zones
+
+firewall-cmd --version
+firewall-cmd --query-port=22/tcp
+firewall-cmd --add-port=22/tcp
+firewall-cmd --remove-port=22/tcp
+firewall-cmd --list-services
+作用：保护服务器安全
+设置防火墙规则
+	-->开放80,22端口
+关闭防火墙并禁止启动
+systemctl stop firewalld
+systemctl disable firewalld
+关闭selinux cd /etc/selinux/config
+
+
+提权操作sudo和文件传输操作
+提权：sudo
+			visudo
+服务器文件下载
+		wget http://www.baidu.com(无法指定文件名，默认为index.html)
+		curl -o	filename http://www.imooc.com
+客户端上传文件到服务端，服务端下载到客户端
+		scp imooc imooc@172.20.10.14:/tmp/ 
+		scp imooc@172.20.10.14:/tmp/baidu.html  ./
+		imooc_(2).txt
+
+		
+利用xshell演示，服务器文件下载到客户端、客户端上传到服务端
+		sudo yum install lrzsz
+		sz filename
+		rz
+		
+
+
+
+
+
+
+
+
+

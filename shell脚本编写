@@ -1,0 +1,10 @@
+shell脚本编写
+echo $PATH 查看环境变量
+/home/jesee/bin:/home/jesee/.local/bin:/usr/java/jdk1.8.0_161/bin:/usr/java/jdk1.8.0_161/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin:/snap/bin
+
+变量的引用
+var="shell scripts"
+echo $var
+
+read var
+

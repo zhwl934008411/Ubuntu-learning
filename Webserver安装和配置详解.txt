@@ -1,0 +1,82 @@
+index 7-1 Apache的安装
+yum install apache2
+service apache2 start 
+sudo /etc/init.d/apache2 start
+
+service httpd stop
+service httpd restart
+yum -e httpd
+
+Webserver的默认端口是80
+ps -ef |grep httpd	查看某个服务的进程信息
+sudo netstat -anpl | grep 'http'  查看webserver使用的端口
+
+:q!	不保存退出
+:wq 保存退出
+sudo chown -R imooc:imooc /data		将/data目录下的文件归imooc用户所有
+	change owner
+sudo su -		切换用户到root
+sudo setenforce 1 不授权访问	
+sudo setenforce 0 授权访问关闭selinux防火墙
+
+伪静态操作
+伪静态模块：etc\httpd\modules\mod_rewrite.so
+
+index 7-3 Nginx的安装
+首先添加CenOS 7 Nginx yum 资源库
+--> sudo rpm-Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+rpm是Red Hat 贡献出来的软件包管理工具
+rpm－Uvh：升级软件包--Update；
+yum install  -y nginx
+
+service nginx start
+sudo /etc/init.d/nginx start
+sudo /etc/init.d/nginx reload
+sudo /etc/inid.d/nginx stop
+service nginx stop
+service nginx reload(修改配置后进行reload，无缝迁移，时间非常短)
+
+ll .usr/share/nginx/html
+
+
+拓展知识
+虚拟主机
+nginx.conf配置文件中，配置user=root，然后reload nginx
+C:\WINDOWS\System32\drivers\etc\hosts添加
+172.20.10.14 www.imooc.test www.imooc2.test
+才可以访问其网址
+多域名、多端口
+nginx伪静态的实现
+http://www.imooc2.test/1.htmp
+imooc.conf 添加
+rewrite ^(.*)\.htmp$ /index.html;
+日志格式化
+nginx.conf已经配置
+
+反向代理和负载均衡
+nginx config
+imooc config
+调试技巧
+单行调试
+nginx添加自定义header
+https://blog.csdn.net/albertfly/article/details/51702556
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

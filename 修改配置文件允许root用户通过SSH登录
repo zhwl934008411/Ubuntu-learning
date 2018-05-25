@@ -1,0 +1,9 @@
+sudo vim /etc/ssh/sshd.config
+#PermitRootLogin prohibit-password
+ADD YIXIA
+PermitRootLogin yes
+
+sudo service sshd restart
+
+
+

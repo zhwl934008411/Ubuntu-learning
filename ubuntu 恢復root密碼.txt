@@ -1,0 +1,8 @@
+开机长按shift键，进入Advanced options for Ubuntu
+选择Ubuntu,with linux 4.10.0-37-generic(recovery mode)
+recovery mode menu 选择root，弹出root shell
+输入mount -o rw,remount /
+passwd root
+输入新密码
+再次输入密码
+密码修改成功
