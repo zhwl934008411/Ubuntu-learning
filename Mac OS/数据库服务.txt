@@ -1,0 +1,71 @@
+MySQL基本操作
+解释			命令
+安装			yum install mysql-community-server
+启动         service mysqld start/restart
+停止			service mysqld stop
+ 
+ CentOS7默认安装mariadb数据库,首先要删除mariadb 
+ sudo yum remove mariadb-libs.x86_64
+ 下载Mysql源
+sudo wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+ 安装源：
+sudo yum localinstall mysql57-community-release-el7-11.noarch.rpm
+ 安装服务			yum install mysql-community-server
+ 安装mysql的依赖包：
+ yum install mariadb-embedded mariadb-libs mariadb-bench mariadb mariadb-sever
+ yum install mariadb*
+ 设置mysql自启动：sudo systemctl enable mysql
+默认密码
+cat /var/log/mysqld.log | grep "password" 
+KrlqOY!Ka8sa
+重置密码：
+set global validate_password_policy=0;
+set global validate_password_length=1;
+SET PASSWORD = PASSWORD('123456');
+
+登录：mysql -uroot -pKrlqOY\!Ka8sa
+mysql -uroot -p123456
+(shell编程！属于特殊命令 打印！需要加上转义字符\)
+退出：exit mysql/quit mysql
+安全登录：mysql -uroot -p，history可以查看到shell输入历史
+ *  -P,--port=# 端口号(默认3306)
+ *  -h,--host=name 服务器名称（本地服务器地址127.0.0.1，称之为本地回环地址）
+mysql -uroot -P3306 -h127.0.0.1 -p
+
+
+远程连接
+开启远程连接：
+show databases;
+use mysql
+show tables;
+select * from user \G;
+select Host,User from user \G;
+update user set host = '%' where Host = "localhost" and User = "root";
+flush privileges;
+
+
+开启genelog
+set global general_log_file="/tmp/general.log";
+set global general_log=on;
+
+
+新建用户和权限操作
+create user 'imooc'@'%' identified by '123456';
+赋予imooc用户所有数据库的权限
+grant all privileges on *.* to 'imooc'@'%' identified by '123456' with grant option;
+赋予imooc用户部分权限
+grant select,insert,update,delete on *.* to 'imooc'@'%' identified by '123456' with grant option;
+删除imooc访问数据库的所有权限
+revoke all privileges on *.* FROM imooc;
+找回root密码
+sudo vim /etc/my.cof
+
+MySQL客户端工具，数据库管理工具
+SQLyog		Navicat		HeidiSQL
+Sequal Pro		phpMyadmin
+mariadb-5.5.56-2.el7.x86_64 
+
+
+
+
+

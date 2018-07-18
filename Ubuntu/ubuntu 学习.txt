@@ -1,0 +1,245 @@
+解决ubuntu播放不了视频和音频
+sudo apt-get install flashplugin-nonfree
+
+
+Ubuntu 16.04 LTS软件包管理
+软件操作命令
+软件包管理器：apt(advanced packege tools)
+软件安装：apt install xxx
+卸载软件：apt remove xxx
+搜索软件：apt search xxx
+清理缓存：apt clean packages
+列出已安装：apt list
+软件包信息 apt show xxx
+
+替换默认源为阿里源
+切换为root用户;su
+打开apt软件园配置文件 cd /etc/apt/sources.list
+备份sources.list cp sources.list sources.list.backup
+mv/cp 源文件 目标文件
+ 
+修改sources.list，vim sources.list只需将sources.list中最前面加上
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+
+
+:wq
+
+生效：apt update
+
+切换用换到jesee：su jesee
+
+
+
+Git 世界上最先進的分布版本管理 
+
+sogoupinyin_2.2.0.0102_amd64.deb shungjijike
+
+Ubuntu 16.04 下安装不能安装搜狗输入法的问题
+https://blog.csdn.net/troylemon/article/details/52123758
+
+sudo dpkg -i sogoupinyin_2.2.0.0102_amd64.deb
+
+安装依赖包：sudo apt -f install
+
+从网上下载软件或安装源：sudo wget html(download address)
+
+https://www.linuxidc.com/Linux/2016-05/131096.htm
+
+卸载搜狗输入法
+sudo dpkg -l so*	列出所有deb包安装的软件
+sudo dpkg -r sogoupinyin
+
+google-chrome-stable
+下载安装源:sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+导入公钥
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+更新安装源
+sudo apt update
+下载chrome
+sudo apt install google-chrome-stable
+启动chrome
+google-chrome-stable或者/usr/bin/google-chrome-stable
+
+
+lantern
+下载lantern:https://github.com/getlantern/lantern
+lantern-installer-64-bit.deb
+安装第三方deb包之前先安装gdebi-core
+sudo apt install gdebi-core
+安装lantern,切换到deb包所在目录
+sudo dpkg -i lantern-installer-64-bit.deb
+
+
+英文版Ubuntu16.04安装fcitx-googlepinyin
+https://blog.csdn.net/striker_v/article/details/51914637
+
+sudo apt-get autoremove 清理boot缓存,释放boot空间
+ubuntu启动失败,"---[ end Kernel panic - not syncing: VFS : Unable to mount reboot fs on unknown-block(0,0)]"
+开机切换到advanced options,选择一个最末尾的generic内核启动
+
+安装缺失的依赖包:sudo apt -f install
+
+网易云音乐
+在Ubuntu 14.04 64bit上安装网易云音乐Linux版本(最新..._CSDN博客
+https://blog.csdn.net/tao_627/article/details/51535294
+
+sudo apt -f install
+sudo dpkg -i deb
+
+启动:sudo nohup netease-cloud-music & 关掉terminal
+https://blog.csdn.net/gpwner/article/details/78347516
+windows+s 切换workspace
+
+安装java和python
+jdk1.8.0_161:http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+新建/usr/java
+讲jdk1.8.0_161移动到java目录下:sudo mv jdk1.8.0_161 /usr/java/ 
+配置环境变量
+sudo vim /etc/environment
+末尾加入如下语句:
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin"
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+export JAVA_HOME=/usr/java/jdk1.8.0_161
+
+
+source /etc/environment 使环境变量生效
+配置全局环境变量
+sudo vim /etc/profile
+
+#set Java environment
+
+export JAVA_HOME=/usr/java/jdk1.8.0_161
+export JRE_HOME=$JAVA_HOME/jre
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+
+
+source /etc/profile
+
+输入java -version 
+安装idea,
+启动sh idea.sh
+webstorm,pycharm
+
+安装idea
+https://blog.csdn.net/u014796292/article/details/79531047
+
+安装python
+ubuntu16.04中默认包含了python-2.7,python-3.5
+python2	python3
+
+Ubuntu16.04+python的安装 - CSDN博客
+https://blog.csdn.net/weixin_36835368/article/details/55505577
+
+ubuntu16.04设置python3为默认及一些库的安装
+https://www.cnblogs.com/jokie/p/6933546.html
+
+Ubuntu16.04下完美切换Python版本
+https://blog.csdn.net/CYM_LMY/article/details/78315139
+
+在Ubuntu中自带的有python模块，但是该模块较为简单，并不含有日常处理所需的数据库和安装包。接下来说一下python的手动安装方法，并附带安装我所需要的库。
+
+1.安装所需依赖
+sudo apt-get install libfreetype6-dev
+
+2.下载安装包并解压。
+wget http://effbot.org/downloads/Imaging-1.1.7.tar.gz
+tar -zxvf Imaging-1.1.7.tar.gz
+
+3.修改setup.py 中依赖库的路径
+cd Imaging-1.1.7
+emacs setup.py (emacs与vim一样只是文本编辑器 sudo apt-get install emacs)
+
+Ubuntu 上 python PIL库的安装
+https://www.cnblogs.com/semparatus/archive/2012/09/12/2681361.html
+
+
+ubuntu下为Intellij IDEA 添加启动器
+https://blog.csdn.net/u013120098/article/details/44644749
+
+
+ubuntu安装nodejs
+https://blog.csdn.net/w20101310/article/details/73135388
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt install -y nodejs
+
+ubuntu安装sublimetext
+
+ubuntu安装sublime详细教程
+https://blog.csdn.net/coding99/article/details/52421337
+官方教程
+http://www.sublimetext.com/docs/3/linux_repositories.html
+
+
+破解UltraEdit 的方法：
+
+UltraEdit从网上下载的只能试用版30天，30天到期后，在到用户home目录下如：文件夹/home/username/.idm 下面，删除uex文件夹，再次重新打开UE，就又可以试用30天啦！
+
+安装notepad++
+在Ubuntu / Ubuntu Kylin下安装和卸载 Nodepadqq
+对于Ubuntu发行版本可以通过PPA安装，命令如下：
+添加ppa源 personal package archives
+sudo add-apt-repository ppa:notepadqq-team/notepadqq
+sudo apt-get update
+sudo apt-get install notepadqq
+
+类似的，卸载命令如下：
+
+sudo apt-get remove notepadqq
+sudo add-apt-repository --remove ppa:notepadqq-team/notepadqq
+
+添加下载源
+sudo wget xxx.html
+
+ubuntu解压文件和压缩文件
+https://zhidao.baidu.com/question/128157126.html
+sudo apt install rar
+sudo apt install unrar
+
+rar a filename.rar filename
+rar x filename 解压到当前目录
+
+列出所有已挂载的磁盘
+fdisk -l
+插入U盘,挂载到/mnt/目录下
+mount /dev/sdd1 /mnt
+
+打开挂载的外置各磁盘
+cd /media/jesee/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

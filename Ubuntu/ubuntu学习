@@ -1,0 +1,73 @@
+Git 世界上最先進的分布版本管理 
+
+sogoupinyin_2.2.0.0102_amd64.deb shungjijike
+
+Ubuntu 16.04 下安装不能安装搜狗输入法的问题
+https://blog.csdn.net/troylemon/article/details/52123758
+
+sudo dpkg -i sogoupinyin_2.2.0.0102_amd64.deb
+
+安装依赖包：sudo apt -f install
+
+从网上下载软件或安装源：sudo wget html(download address)
+
+https://www.linuxidc.com/Linux/2016-05/131096.htm
+
+卸载搜狗输入法
+sudo dpkg -l so*	列出所有deb包安装的软件
+sudo dpkg -r sogoupinyin
+
+google-chrome-stable
+下载安装源:sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+导入公钥
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+更新安装源
+sudo apt update
+下载chrome
+sudo apt install google-chrome-stable
+启动chrome
+google-chrome-stable或者/usr/bin/google-chrome-stable
+
+
+lantern
+下载lantern:https://github.com/getlantern/lantern
+lantern-installer-64-bit.deb
+安装第三方deb包之前先安装gdebi-core
+sudo apt install gdebi-core
+安装lantern,切换到deb包所在目录
+sudo dpkg -i lantern-installer-64-bit.deb
+
+
+英文版Ubuntu16.04安装fcitx-googlepinyin
+https://blog.csdn.net/striker_v/article/details/51914637
+
+sudo apt-get autoremove 清理boot缓存,释放boot空间
+ubuntu启动失败,"---[ end Kernel panic - not syncing: VFS : Unable to mount reboot fs on unknown-block(0,0)]"
+开机切换到advanced options,选择一个最末尾的generic内核启动
+
+安装缺失的依赖包:sudo apt -f install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
